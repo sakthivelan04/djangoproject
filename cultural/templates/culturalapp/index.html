@@ -1,0 +1,19 @@
+{% load static %}
+<html>
+
+<head>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block title %}
+    <title></title>
+    {% endblock %}
+
+</head>
+<body>
+</body>
+<img src="{% static './images/1.jpg' %}" alt="My image">
+{% block content %}
+{% endblock %}
+
+
+
+</html>
