@@ -18,11 +18,8 @@ Including another URLconf
 from django.urls import path
 from secondapp import views
 
-
-
 urlpatterns = [
         
         path('home', views.h,name='home'),
         path('register',views.registration),
-
 ]

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% include "firstapp/navbar.html" %}
 <html>
 {% load static %}
 <head>
@@ -23,6 +23,7 @@
             <th>Address</th>
             <th>Event</th>
             <th>Date</th>
+            <th>Poster</th>
         </tr>
         {% for cultural in cul_list %}
         <tr>
@@ -30,6 +31,9 @@
             <td>{{ cultural.Clg_Address }}</td>
             <td>{{ cultural.Event_Name }}</td>
             <td>{{ cultural.Date }}</td>
+            <td> {% if cultural.cultural_Poster %} 
+               <img src=" {{ cultural.cultural_Poster.url }}" width=100>
+                {% endif %}</td>
         </tr>
         {% endfor %}
     </table>
