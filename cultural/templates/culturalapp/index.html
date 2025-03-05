@@ -1,0 +1,68 @@
+{% include "culturalapp/header.html" %}
+{% include "culturalapp/navbar.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Cultural Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header class="header">
+
+    </header>
+
+    <!-- Welcome Section with Popups -->
+    <section class="welcome-section">
+        <div class="welcome-header">
+            <h2>Welcome to Our Cultural Hub</h2>
+            <p>Explore, Participate, and Celebrate Diversity</p>
+        </div>
+
+        <div class="popup-container">
+            <!-- Popup 1 -->
+            <div class="popup-box" onclick="showPopup(1)">
+                <div class="popup-icon"><i class="fas fa-calendar-alt"></i></div>
+                <h3>Upcoming Events</h3>
+                <div class="popup-content" id="popup1">
+                    <h4>Cultural Fest 2023</h4>
+                    <p>Date: Nov 15-17 | Venue: Main Auditorium</p>
+                    <button class="btn">Register Now</button>
+                </div>
+            </div>
+
+            <!-- Popup 2 -->
+            <div class="popup-box" onclick="showPopup(2)">
+                <div class="popup-icon"><i class="fas fa-trophy"></i></div>
+                <h3>Competitions</h3>
+                <div class="popup-content" id="popup2">
+                    <h4>Ongoing Competitions</h4>
+                    <ul>
+                        <li>Dance Competition</li>
+                        <li>Art Exhibition</li>
+                        <li>Music Challenge</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Popup 3 -->
+            <div class="popup-box" onclick="showPopup(3)">
+                <div class="popup-icon"><i class="fas fa-bullhorn"></i></div>
+                <h3>Announcements</h3>
+                <div class="popup-content" id="popup3">
+                    <h4>Latest Updates</h4>
+                    <p>Registration deadline extended till Nov 10th</p>
+                    <p>New workshop on Traditional Arts</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

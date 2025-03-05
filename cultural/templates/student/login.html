@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/student.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <video autoplay loop muted plays-inline class="back-video">
+        <source src="{% static 'images/v2.mp4' %}" type="video/mp4">
+    </video>
+<div class= "wrapper">
+    <h1>Login</h1>
+    <form action="" method="POST" autocomplete="off">
+        {% csrf_token %}
+        <div class="input-box">
+        <input type="text" name="register_no" id="register_no" placeholder="Register Number" required>
+        <i class='bx bxs-user'></i></i>
+        </div>
+        <div class="input-box">
+        <input type="password" name="password" id="password" placeholder="Password" required>
+        <i class='bx bxs-lock'></i></i>
+        </div>
+        <div class="remember-forgot">
+        <label><input type="checkbox">Remember Me</label>
+        <a href="#"> Forgot Password</a>
+        </div>
+        <button type="submit" class="btn">Login</button>
+        <div class="register-link">
+        <p>Dont have an account ?<a href="{% url 'R'%}">Register</a>
+        </div>
+    </form>
+</div>
+    {% for message in messages %}
+        <p>{{ message }}</p>
+    {% endfor %}
+</body>
+</html>

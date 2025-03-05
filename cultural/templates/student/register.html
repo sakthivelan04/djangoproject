@@ -1,0 +1,22 @@
+{% load static %}
+<html>
+<head>
+<title>Register</title>
+<link rel="stylesheet" href="{% static "css/r1.css" %}">
+</head>
+<body>
+    <div class="shadow-wrap">
+  
+        <div class="form-wrap">
+            <h1>Student Registration</h1>
+<form method="POST" autocomplete="off">
+{% csrf_token %}
+{{form.as_p}}
+
+</div>
+<button type="submit" class="btn">Submit</button>
+<div class="register-link">
+<p>Already have an account?<a href="{% url 'l'%}">Login</a>
+</div>
+</body>
+</html>

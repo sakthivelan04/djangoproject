@@ -1,0 +1,46 @@
+{% include "events/navbar.html" %}
+<html>
+{% load static %}
+<head>
+    <title>Cultural</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <section class="welcome-section">
+        <div class="welcome-header">
+            <h2>Welcome to Our Cultural Hub</h2>
+            <p>Upcomeing Events</p>
+        </div>
+
+   
+
+{% if cul_list %}
+
+    <table>
+        <tr>
+            <th>College</th>
+            <th>Address</th>
+            <th>Event</th>
+            <th>Date</th>
+            <th>Poster</th>
+            <th>Link</th>
+        </tr>
+        {% for cultural in cul_list %}
+        <tr>
+            <td>{{ cultural.Clg_Name }}</td>
+            <td>{{ cultural.Clg_Address }}</td>
+            <td>{{ cultural.Event_Name }}</td>
+            <td>{{ cultural.Date }}</td>
+            <td> {% if cultural.cultural_Poster %} 
+               <img src=" {{ cultural.cultural_Poster.url }}" width=100>
+                {% endif %}</td>
+            <td><a href="{% url 'r' %}">Register</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+
+</section>
+</body>
+</html>
