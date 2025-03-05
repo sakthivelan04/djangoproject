@@ -21,6 +21,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from firstapp import views
 from secondapp import views
+from thirdapp import views
+
 
 admin.site.site_header = 'Cultural Admin'
 admin.site.site_title = 'User And Events'
@@ -28,7 +30,7 @@ admin.site.index_title = 'Cultural User Admin'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include("culturalapp.urls")),
     path('first/', include('firstapp.urls')),
     path('second/', include('secondapp.urls')),
+    path('user/', include('thirdapp.urls'))
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

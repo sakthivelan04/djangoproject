@@ -1,5 +1,49 @@
-<form method="post">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit" value="submit">Signup</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/r.css' %}">
+</head>
+<body>
+
+{% block content %}
+<div class="shadow-wrap">
+    <div class="form-wrap">
+        <h1>Signup</h1>
+        <form method="post" >
+            {% csrf_token %}
+
+            <div class="form-field">
+                <label for="{{ form.username.id_for_label }}">
+                    <i class="fas fa-user"></i> Username
+                </label>
+                <input type="text" name="username" id="{{ form.username.id_for_label }}" placeholder="Enter your username" required>
+            </div>
+
+            <div class="form-field">
+                <label for="{{ form.password1.id_for_label }}">
+                    <i class="fas fa-lock"></i> Password
+                </label>
+                <input type="password" name="password1" id="{{ form.password1.id_for_label }}" placeholder="Enter your password" required>
+            </div>
+
+            <div class="form-field">
+                <label for="{{ form.password2.id_for_label }}">
+                    <i class="fas fa-lock"></i> Confirm Password
+                </label>
+                <input type="password" name="password2" id="{{ form.password2.id_for_label }}" placeholder="Confirm your password" required>
+            </div>
+
+            <button type="submit">Signup</button>
+        </form>
+        <a class="signup-link" href="{% url 'h' %}">Already have an account? Login</a>
+    </div>
+</div>
+{% endblock content %}
+
+</body>
+</html>

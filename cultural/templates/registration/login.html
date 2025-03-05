@@ -1,6 +1,24 @@
-<h1>Login</h1>
+<html>
+<head>
+    <title>Login</title>
+{% load static %}
+<link rel="stylesheet" href="{% static "css/register.css" %}">
+</head>
+<body>
+
+{% block content %}
+<div class="shadow-wrap">
+  
+    <div class="form-wrap">
+        <h1>Login</h1>
 <form method="post">
     {% csrf_token %}
     {{form.as_p}}
     <button type="submit" >Login</button>
 </form>
+<a class="signup-link" href="{% url 'signup' %}">Don't have an account? Sign up</a>
+</div>
+</div>
+{% endblock content %}
+</body>
+</html>

@@ -4,9 +4,6 @@ from .models import cultural
 
 # Register your models here.
 
-class collage(forms.Form):
-    Reg_no = forms.IntegerField()
-    Password = forms.CharField()
 
 class CulturalForm(forms.ModelForm):
     class Meta:

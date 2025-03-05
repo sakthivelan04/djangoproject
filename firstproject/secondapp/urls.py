@@ -17,9 +17,15 @@ Including another URLconf
 
 from django.urls import path
 from secondapp import views
+from django.views.generic import TemplateView
+from firstapp import views as v1
+
+app_name = 'secondapp'
 
 urlpatterns = [
-        
-        path('home', views.h,name='home'),
-        path('register',views.registration),
+        path('home', views.h, name='home'),
+        path('login', views.login_view, name='login'),  # Ensure the name is 'login'
+        path('logout', views.logout_view),
+        path('register', views.registration),
+        path('', TemplateView.as_view(template_name='culturalapp/index.html')),
 ]

@@ -1,5 +1,4 @@
-from django.shortcuts import render
-#from django.http import HttpResponce
+from django.shortcuts import render, redirect
 from firstapp.models import cultural
 from firstapp.forms import CulturalForm
 from . import forms
@@ -8,45 +7,46 @@ import io
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import inch
 from reportlab.lib.pagesizes import letter
-from django.contrib.auth.forms import UserCreationForm
-# Create your views here.
 
 
-def  culDetail(request):
+
+# View to display cultural details
+def culDetail(request):
     name = 'sakthi'
-    cul_data = cultural.objects.all()  #collecting data from models
-    cul_dict = {'cul_list': cul_data}#dictionary
-    return render(request, 'firstapp/a1.html', context = cul_dict )  # send the data to html
+    cul_data = cultural.objects.all()  # Collecting data from models
+    cul_dict = {'cul_list': cul_data}  # Dictionary to pass data
+    return render(request, 'firstapp/cultural.html', context=cul_dict)  # Sending data to HTML
 
+# View to handle the cultural form
 def form_view(request):
     form = forms.CulturalForm()
     if request.method == 'POST':
         form = forms.CulturalForm(request.POST)
         if form.is_valid():
-            form.save(commit=True)
-            return culDetail(request)
-    return render(request, 'firstapp/update.html', {'form': form})
+            form.save()
+            return redirect('cultural')  # Redirecting back to cultural view
+    return render(request, 'firstapp/home.html', {'form': form})
 
-def clg(request):
-    form = forms.collage()
-    clg_info = {'form' :form}
-    return render(request,'firstapp/ab.html', context = clg_info)
-
+# View to generate the PDF
 def cultural_pdf(request):
-    buffer = io.BytesIO()   # create bytestream buffer
-    c = canvas.Canvas(buffer, pagesize=letter, bottomup=0)  #create a canvas
-    textob = c.beginText()     # create a text object
+    buffer = io.BytesIO()  # Create bytestream buffer
+    c = canvas.Canvas(buffer, pagesize=letter, bottomup=0)  # Create canvas
+    textob = c.beginText()  # Create text object
     textob.setTextOrigin(inch, inch)
     textob.setFont("Helvetica", 24)
-    line =[
+    
+    lines = [
         "Cultural Festival",
         "Cultural Festival",
         "Cultural Festival",
     ]
-    for i in line:
-        textob.textLine(i)
-        c.drawText(textob)
-        c.showPage()
-        c.save()
-        buffer.seek(0)
-        return FileResponse(buffer, as_attachment=True, filename='cultural.pdf')
+    for line in lines:
+        textob.textLine(line)
+    c.drawText(textob)
+    c.showPage()
+    c.save()
+    
+    buffer.seek(0)
+    return FileResponse(buffer, as_attachment=True, filename='cultural.pdf')
+
+

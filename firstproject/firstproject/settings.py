@@ -33,6 +33,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', ]
 
+
+
+handler404 = 'views.handler404'
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -42,7 +47,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'firstapp','secondapp','thirdapp',
+    'firstapp',
+    'secondapp',
+    'thirdapp',
     'fourthapp',
 ]
 
@@ -133,3 +140,11 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
+
+LOGIN_REDIRECT_URL = "/home"
+LOGOUT_REDIRECT_URL = "/home"
+

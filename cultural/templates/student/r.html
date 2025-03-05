@@ -1,0 +1,22 @@
+{% load static %}
+{% include "student/header.html" %}
+{% include "student/navbar.html" %}
+<html>
+<head>
+<title>Event Register</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<body>
+    
+    <div class="shadow-wrap">
+  
+        <div class="form-wrap">
+<form method="POST" autocomplete="off">
+{% csrf_token %}
+{{form.as_p}}
+<input type="submit" value="submit">
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+{% include "culturalapp/navbar.html" %}
+<html>
+<head>
+<title>Cultural</title>
+{% load static %}
+<link rel="stylesheet" href="{% static "css/home.css" %}">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div>
+{% block form %}
+<div class="shadow-wrap">
+ 
+    <div class="form-wrap">
+        
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="submit">
+{% endblock %}
+</div>
+</body>
+</html>

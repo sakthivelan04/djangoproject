@@ -1,0 +1,19 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/std.css' %}">
+<nav class="navbar">
+    <div class="logo">
+     <!--   <img src="images/logo.png" alt="College Logo"> 
+        <h1>Cultural Hub</h1>-->
+        {% if user.is_authenticated %}
+        <h1> ID {{user.register_no}} </h1>
+        {% else %}
+        <h1> ID {{user.register_no}}</h1>
+       <!-- <a href="{% url 'login' %}">Login</a> -->
+        {% endif %}
+    </div>
+    
+    <ul class="nav-menu">
+      <li><a href="{% url 'r' %}"><i class="fas fa-home"></i> Home</a></li>
+
+    </ul>
+</nav>
